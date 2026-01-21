@@ -1,1 +1,27 @@
 
+runeberg@tofsmes:~$ ssh mahti.csc.fi
+cd $TMPDIR/
+
+Currently Loaded Modules:
+  1) gcc/11.2.0      3) openblas/0.3.18-omp       5) StdEnv
+  2) openmpi/4.1.2   4) csc-tools           (S)
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+git clone https://github.com/grimme-lab/xtb.git
+cd xtb
+# 2. Compile
+mkdir build && cd build
+XTB_INSTALL=/projappl/project_2017403/xtb_install
+mkdir -p $XTB_INSTALL
+cmake .. -DCMAKE_INSTALL_PREFIX=$XTB_INSTALL
+make -j 4          # parallel compilation
+make install
+# 3. Update environment
+
+export XTBHOME=$XTB_INSTALL
+export PATH=$XTBHOME/bin:$PATH
+export LD_LIBRARY_PATH=$XTBHOME/lib:$LD_LIBRARY_PATH
+
+
