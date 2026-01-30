@@ -25,3 +25,9 @@ export PATH=$XTBHOME/bin:$PATH
 export LD_LIBRARY_PATH=$XTBHOME/lib:$LD_LIBRARY_PATH
 
 
+Due to some issues with the OpenMP parallelization I decided
+to stick to the prebuilt distributed static binary 
+/projappl/project_2017403/crest_binary/crest
+
+wget https://github.com/crest-lab/crest/releases/download/latest/crest-gnu-12-ubuntu-latest.tar.xz
+tar -xf crest-gnu-12-ubuntu-latest.tar.xz
